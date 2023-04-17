@@ -42,46 +42,47 @@ function getPlayerChoice()
 
 function playRound(playerSelection, computerSelection)
 {
+    // 1 === win, 2 === loss, 0 === tie
     switch(playerSelection)
     {
         case "rock":
             if (computerSelection === "rock")
             {
-                return "Tie!"
+                return 0
             }
             else if (computerSelection === "paper")
             {
-                return "You Lose! Paper beats Rock."
+                return 2
             }
             else
             {
-                return "You Win! Rock beats Scissors."
+                return 1
             }
         case "paper":
             if (computerSelection === "rock")
             {
-                return "You Win! Paper beats Rock."
+                return 1
             }
             else if (computerSelection === "paper")
             {
-                return "Tie!"
+                return 0
             }
             else
             {
-                return "You Lose! Scissors beats Paper."
+                return 2
             }
         case "scissors":
             if (computerSelection === "rock")
             {
-                return "You Lose! Rock beats Scissors."
+                return 2
             }
             else if (computerSelection === "paper")
             {
-                return "You Win! Scissors beats Paper."
+                return 1
             }
             else
             {
-                return "Tie!"
+                return 0
             }
         default:
             return "Sorry, something went wrong."
@@ -90,11 +91,30 @@ function playRound(playerSelection, computerSelection)
 
 function game()
 {
+    //let playerScore = 0
+    //let computerScore = 0
     for (let i = 0; i < 5; i++)
     {
         let player = getPlayerChoice()
         let computer = getComputerChoice()
-        console.log(playRound(player, computer))
+        let roundResult = playRound(player, computer)
+        if (roundResult === 0)
+        {
+            roundResult = "Tie!"
+        }
+        else if (roundResult === 1)
+        {
+            roundResult = "You Win!"
+            playerScore = playerScore++
+        }
+        else if (roundResult === 2)
+        {
+            roundResult = "Sorry, you lost."
+            computerScore = computerScore++
+        }
+
+        console.log("Round " + (i + 1) + " result: " + roundResult)
+        //console.log("Current score: " + playerScore + " " + computerScore)
     }
 }
 

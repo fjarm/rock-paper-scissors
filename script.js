@@ -21,10 +21,27 @@ function getComputerChoice()
 
 }
 
+function getPlayerChoice()
+{
+    let isPlayerChoiceValid = 0
+    while (isPlayerChoiceValid === 0)
+    {
+        let playerChoice = window.prompt("What do you pick? Rock, Paper, or Scissors?")
+        playerChoice = playerChoice.toLowerCase()
+        if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors")
+        {
+            isPlayerChoiceValid = 1
+            return playerChoice
+        }
+        else
+        {
+            alert("Sorry, that's not a valid choice.")
+        }
+    }
+}
+
 function playRound(playerSelection, computerSelection)
 {
-    playerSelection = playerSelection.toLowerCase()
-
     switch(playerSelection)
     {
         case "rock":
@@ -71,6 +88,14 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
-const playerSelection = "rOck"
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection))
+function game()
+{
+    for (let i = 0; i < 5; i++)
+    {
+        let player = getPlayerChoice()
+        let computer = getComputerChoice()
+        console.log(playRound(player, computer))
+    }
+}
+
+game()

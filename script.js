@@ -91,8 +91,8 @@ function playRound(playerSelection, computerSelection)
 
 function game()
 {
-    //let playerScore = 0
-    //let computerScore = 0
+    let playerScore = 0
+    let computerScore = 0
     for (let i = 0; i < 5; i++)
     {
         let player = getPlayerChoice()
@@ -105,16 +105,28 @@ function game()
         else if (roundResult === 1)
         {
             roundResult = "You Win!"
-            playerScore = playerScore++
+            playerScore = ++playerScore
         }
         else if (roundResult === 2)
         {
             roundResult = "Sorry, you lost."
-            computerScore = computerScore++
+            computerScore = ++computerScore
         }
 
-        console.log("Round " + (i + 1) + " result: " + roundResult)
-        //console.log("Current score: " + playerScore + " " + computerScore)
+        console.log(`Round ${i + 1} result: ${roundResult}`)
+        console.log(`Current score: ${playerScore} - ${computerScore}`)
+    }
+    if (playerScore === computerScore)
+    {
+        console.log(`Game over! It's a tie game with a final score of ${playerScore} - ${computerScore}!`)
+    }
+    else if (playerScore > computerScore)
+    {
+        console.log(`Game over! You win with a final score of ${playerScore} - ${computerScore}!`)
+    }
+    else
+    {
+        console.log(`Game over! You lose with a final score of ${playerScore} - ${computerScore}!`)
     }
 }
 

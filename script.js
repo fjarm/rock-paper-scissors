@@ -48,14 +48,17 @@ function playRound(playerSelection, computerSelection)
         case "rock":
             if (computerSelection === "rock")
             {
+                console.log("tie")
                 return 0
             }
             else if (computerSelection === "paper")
             {
+                console.log("lose")
                 return 2
             }
             else
             {
+                console.log("win")
                 return 1
             }
         case "paper":
@@ -130,4 +133,13 @@ function game()
     }
 }
 
-game()
+
+
+function gameTest()
+{
+    document.getElementById("rockButton").addEventListener("click", function () {
+        playRound("rock", getComputerChoice());
+    });
+}
+
+gameTest()

@@ -42,55 +42,56 @@ function getPlayerChoice()
 
 function playRound(playerSelection, computerSelection)
 {
+    const results = document.querySelector(".results");
     // 1 === win, 2 === loss, 0 === tie
     switch(playerSelection)
     {
         case "rock":
             if (computerSelection === "rock")
             {
-                console.log("tie")
+                results.textContent = "You both chose Rock... Tie round!"
                 return 0
             }
             else if (computerSelection === "paper")
             {
-                console.log("lose")
+                results.textContent = "Computer chose Paper... You lose!"
                 return 2
             }
             else
             {
-                console.log("win")
+                results.textContent = "Computer chose Scissors... You win!"
                 return 1
             }
         case "paper":
             if (computerSelection === "rock")
             {
-                console.log("win")
+                results.textContent = "Computer chose Rock... You win!"
                 return 1
             }
             else if (computerSelection === "paper")
             {
-                console.log("tie")
+                results.textContent = "You both chose Paper... Tie round!"
                 return 0
             }
             else
             {
-                console.log("lose")
+                results.textContent = "Computer chose Scissors... You lose!"
                 return 2
             }
         case "scissors":
             if (computerSelection === "rock")
             {
-                console.log("lose")
+                results.textContent = "Computer chose Rock... You lose!"
                 return 2
             }
             else if (computerSelection === "paper")
             {
-                console.log("win")
+                results.textContent = "Computer chose Paper... You win!"
                 return 1
             }
             else
             {
-                console.log("tie")
+                results.textContent = "You both chose Scissors... Tie round!"
                 return 0
             }
         default:

@@ -43,6 +43,7 @@ function getPlayerChoice()
 function playRound(playerSelection, computerSelection)
 {
     const results = document.querySelector(".results");
+    let testVar = "testing"
     // 1 === win, 2 === loss, 0 === tie
     switch(playerSelection)
     {

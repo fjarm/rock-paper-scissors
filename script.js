@@ -64,27 +64,33 @@ function playRound(playerSelection, computerSelection)
         case "paper":
             if (computerSelection === "rock")
             {
+                console.log("win")
                 return 1
             }
             else if (computerSelection === "paper")
             {
+                console.log("tie")
                 return 0
             }
             else
             {
+                console.log("lose")
                 return 2
             }
         case "scissors":
             if (computerSelection === "rock")
             {
+                console.log("lose")
                 return 2
             }
             else if (computerSelection === "paper")
             {
+                console.log("win")
                 return 1
             }
             else
             {
+                console.log("tie")
                 return 0
             }
         default:
@@ -133,13 +139,18 @@ function game()
     }
 }
 
+const rockButton = document.querySelector("#rockButton");
+const paperButton = document.querySelector("#paperButton");
+const scissorsButton = document.querySelector("#scissorsButton");
 
+rockButton.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+});
 
-function gameTest()
-{
-    document.getElementById("rockButton").addEventListener("click", function () {
-        playRound("rock", getComputerChoice());
-    });
-}
+paperButton.addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+});
 
-gameTest()
+scissorsButton.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+});

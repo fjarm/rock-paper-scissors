@@ -129,6 +129,15 @@ function declareWinner(winner)
         gameOverDiv.appendChild(gameOverText)
     }
     document.querySelector(".results").appendChild(gameOverDiv)
+    disableButtons()
+}
+
+function disableButtons()
+{
+    const buttons = document.querySelectorAll(".gameButton")
+    buttons.forEach((button) => {
+        button.disabled = true
+    })
 }
 
 const rockButton = document.querySelector("#rockButton");

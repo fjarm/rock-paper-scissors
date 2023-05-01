@@ -103,45 +103,6 @@ function updateScore(roundResult)
     }
 }
 
-function game()
-{
-    // for (let i = 0; i < 5; i++)
-    // {
-    //     let player = getPlayerChoice()
-    //     let computer = getComputerChoice()
-    //     let roundResult = playRound(player, computer)
-    //     if (roundResult === 0)
-    //     {
-    //         roundResult = "Tie!"
-    //     }
-    //     else if (roundResult === 1)
-    //     {
-    //         roundResult = "You Win!"
-    //         playerScore = ++playerScore
-    //     }
-    //     else if (roundResult === 2)
-    //     {
-    //         roundResult = "Sorry, you lost."
-    //         computerScore = ++computerScore
-    //     }
-
-    //     console.log(`Round ${i + 1} result: ${roundResult}`)
-    //     console.log(`Current score: ${playerScore} - ${computerScore}`)
-    // }
-    // if (playerScore === computerScore)
-    // {
-    //     console.log(`Game over! It's a tie game with a final score of ${playerScore} - ${computerScore}!`)
-    // }
-    // else if (playerScore > computerScore)
-    // {
-    //     console.log(`Game over! You win with a final score of ${playerScore} - ${computerScore}!`)
-    // }
-    // else
-    // {
-    //     console.log(`Game over! You lose with a final score of ${playerScore} - ${computerScore}!`)
-    // }
-}
-
 const rockButton = document.querySelector("#rockButton");
 const paperButton = document.querySelector("#paperButton");
 const scissorsButton = document.querySelector("#scissorsButton");

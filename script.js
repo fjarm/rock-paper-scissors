@@ -96,11 +96,39 @@ function updateScore(roundResult)
     if (roundResult === 1)
     {
         playerScore.textContent = parseInt(playerScore.textContent) + 1
+        if (playerScore.textContent === "5")
+        {
+            declareWinner("playerWins")
+        }
     }
     else if (roundResult === 2)
     {
         computerScore.textContent = parseInt(computerScore.textContent) + 1
+        if (computerScore.textContent === "5")
+        {
+            declareWinner("computerWins")
+        }
     }
+}
+
+
+function declareWinner(winner)
+{
+    gameOverDiv = document.createElement("div")
+    console.log("We are in DECLAREWINNER()")
+    if (winner === "playerWins")
+    {
+        console.log("PLAYER HAS WON")
+        const gameOverText = document.createTextNode("Game over! You Won!")
+        gameOverDiv.appendChild(gameOverText)
+    }
+    else if (winner === "computerWins")
+    {
+        console.log("COMPUTER HAS WON")
+        const gameOverText = document.createTextNode("Game over! You Lost!")
+        gameOverDiv.appendChild(gameOverText)
+    }
+    document.querySelector(".results").appendChild(gameOverDiv)
 }
 
 const rockButton = document.querySelector("#rockButton");

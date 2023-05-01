@@ -21,29 +21,9 @@ function getComputerChoice()
 
 }
 
-function getPlayerChoice()
-{
-    let isPlayerChoiceValid = 0
-    while (isPlayerChoiceValid === 0)
-    {
-        let playerChoice = window.prompt("What do you pick? Rock, Paper, or Scissors?")
-        playerChoice = playerChoice.toLowerCase()
-        if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors")
-        {
-            isPlayerChoiceValid = 1
-            return playerChoice
-        }
-        else
-        {
-            alert("Sorry, that's not a valid choice.")
-        }
-    }
-}
-
 function playRound(playerSelection, computerSelection)
 {
     const results = document.querySelector(".results");
-    let testVar = "testing"
     // 1 === win, 2 === loss, 0 === tie
     switch(playerSelection)
     {
@@ -51,94 +31,115 @@ function playRound(playerSelection, computerSelection)
             if (computerSelection === "rock")
             {
                 results.textContent = "You both chose Rock... Tie round!"
-                return 0
+                updateScore(0)
+                break
             }
             else if (computerSelection === "paper")
             {
                 results.textContent = "Computer chose Paper... You lose!"
-                return 2
+                updateScore(2)
+                break
             }
             else
             {
                 results.textContent = "Computer chose Scissors... You win!"
-                return 1
+                updateScore(1)
+                break
             }
         case "paper":
             if (computerSelection === "rock")
             {
                 results.textContent = "Computer chose Rock... You win!"
-                return 1
+                updateScore(1)
+                break
             }
             else if (computerSelection === "paper")
             {
                 results.textContent = "You both chose Paper... Tie round!"
-                return 0
+                updateScore(0)
+                break
             }
             else
             {
                 results.textContent = "Computer chose Scissors... You lose!"
-                return 2
+                updateScore(2)
+                break
             }
         case "scissors":
             if (computerSelection === "rock")
             {
                 results.textContent = "Computer chose Rock... You lose!"
-                return 2
+                updateScore(2)
+                break
             }
             else if (computerSelection === "paper")
             {
                 results.textContent = "Computer chose Paper... You win!"
-                return 1
+                updateScore(1)
+                break
             }
             else
             {
                 results.textContent = "You both chose Scissors... Tie round!"
-                return 0
+                updateScore(0)
+                break
             }
         default:
             return "Sorry, something went wrong."
     }
 }
 
+function updateScore(roundResult)
+{
+    const playerScore = document.querySelector(".playerScore")
+    const computerScore = document.querySelector(".computerScore")
+    if (roundResult === 1)
+    {
+        playerScore.textContent = parseInt(playerScore.textContent) + 1
+    }
+    else if (roundResult === 2)
+    {
+        computerScore.textContent = parseInt(computerScore.textContent) + 1
+    }
+}
+
 function game()
 {
-    let playerScore = 0
-    let computerScore = 0
-    for (let i = 0; i < 5; i++)
-    {
-        let player = getPlayerChoice()
-        let computer = getComputerChoice()
-        let roundResult = playRound(player, computer)
-        if (roundResult === 0)
-        {
-            roundResult = "Tie!"
-        }
-        else if (roundResult === 1)
-        {
-            roundResult = "You Win!"
-            playerScore = ++playerScore
-        }
-        else if (roundResult === 2)
-        {
-            roundResult = "Sorry, you lost."
-            computerScore = ++computerScore
-        }
+    // for (let i = 0; i < 5; i++)
+    // {
+    //     let player = getPlayerChoice()
+    //     let computer = getComputerChoice()
+    //     let roundResult = playRound(player, computer)
+    //     if (roundResult === 0)
+    //     {
+    //         roundResult = "Tie!"
+    //     }
+    //     else if (roundResult === 1)
+    //     {
+    //         roundResult = "You Win!"
+    //         playerScore = ++playerScore
+    //     }
+    //     else if (roundResult === 2)
+    //     {
+    //         roundResult = "Sorry, you lost."
+    //         computerScore = ++computerScore
+    //     }
 
-        console.log(`Round ${i + 1} result: ${roundResult}`)
-        console.log(`Current score: ${playerScore} - ${computerScore}`)
-    }
-    if (playerScore === computerScore)
-    {
-        console.log(`Game over! It's a tie game with a final score of ${playerScore} - ${computerScore}!`)
-    }
-    else if (playerScore > computerScore)
-    {
-        console.log(`Game over! You win with a final score of ${playerScore} - ${computerScore}!`)
-    }
-    else
-    {
-        console.log(`Game over! You lose with a final score of ${playerScore} - ${computerScore}!`)
-    }
+    //     console.log(`Round ${i + 1} result: ${roundResult}`)
+    //     console.log(`Current score: ${playerScore} - ${computerScore}`)
+    // }
+    // if (playerScore === computerScore)
+    // {
+    //     console.log(`Game over! It's a tie game with a final score of ${playerScore} - ${computerScore}!`)
+    // }
+    // else if (playerScore > computerScore)
+    // {
+    //     console.log(`Game over! You win with a final score of ${playerScore} - ${computerScore}!`)
+    // }
+    // else
+    // {
+    //     console.log(`Game over! You lose with a final score of ${playerScore} - ${computerScore}!`)
+    // }
 }
 
 const rockButton = document.querySelector("#rockButton");

@@ -1,3 +1,8 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 body {
     background-color: #20262E;
     color: #E9E8E8;
@@ -5,14 +10,16 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: "basic", sans-serif;
-    border: 2px solid red;
 }
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     margin-left: 200px;
     margin-right: 200px;
+    border: 2px solid red;
+    height: auto;
 }
 
 .gameButton {
@@ -23,7 +30,7 @@ body {
     border-radius: 12px;
     font-size: 30px;
     padding: 40px 0px;
-    margin: 0px 100px 40px 100px;
+    margin: 0px 80px 40px 80px;
     width: 300px;
     box-shadow: 0 9px #999;
     cursor: pointer;
@@ -52,6 +59,7 @@ h1 {
     font-size: 40px;
     margin-top: 60px;
     margin-bottom: 80px;
+    text-align: center;
 }
 
 .score {
@@ -60,10 +68,10 @@ h1 {
     margin-bottom: 80px;
     font-size: 80px;
     color: #CD5888;
+    text-align: center;
 }
 
 .footer {
-    display: flex;
-    flex:1;
-    align-items: flex-end;
+    margin-top: auto;
+    margin-bottom: 0;
 }

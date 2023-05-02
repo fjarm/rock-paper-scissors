@@ -7,21 +7,27 @@
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Basic&family=Press+Start+2P&family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button type="button" id="rockButton" class="gameButton">Rock</button>
-    <button type="button" id="paperButton" class="gameButton">Paper</button>
-    <button type="button" id="scissorsButton" class="gameButton">Scissors</button>
-    <div class="results">Click any button to play!</div>
+    <h1>Choose your weapon</h1>
+    <div class="buttons">
+        <button type="button" id="rockButton" class="gameButton">Rock</button>
+        <button type="button" id="paperButton" class="gameButton">Paper</button>
+        <button type="button" id="scissorsButton" class="gameButton">Scissors</button>
+    </div>
+    <div class="results"></div>
     <div class="score">
         <div class="playerScoreContainer">
-            <div>Your Score: </div>
             <div class="playerScore">0</div>
         </div>
+        <div>-</div>
         <div class="computerScoreContainer">
-            <div>Computer Score: </div>
             <div class="computerScore">0</div>
         </div>
     </div>
+    <div class="footer">&copy 2023 Pork :-)</div>
 </body>
 </html>
